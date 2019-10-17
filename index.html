@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <title>Bulma</title>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                Bulma
+            </h1>
+            <p class="subtitle">
+                Dropdown
+            </p>
+        </div>
+    </section>
+    <div class="dropdown" data-active=false>
+        <div class="dropdown-trigger">
+            <button id='clickme' class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+                <span id='selection'>Click me</span>
+                <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+            </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+            <div class="dropdown-content">
+                <a href="#" class="dropdown-item">
+                    Overview
+                </a>
+                <a href="#" class="dropdown-item">
+                    Modifiers
+                </a>
+                <a href="#" class="dropdown-item">
+                    Grid
+                </a>
+                <a href="#" class="dropdown-item">
+                    Form
+                </a>
+                <a href="#" class="dropdown-item">
+                    Elements
+                </a>
+                <a href="#" class="dropdown-item">
+                    Components
+                </a>
+                <a href="#" class="dropdown-item">
+                    Layout
+                </a>
+                <hr class="dropdown-divider">
+                <a href="#" class="dropdown-item">
+                    More
+                </a>
+            </div>
+        </div>
+    </div>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script>
+        {
+            const drop = document.querySelector('.dropdown')
+            const sel = document.querySelector('#selection')
+            let active = drop.dataset.active
+            drop.addEventListener('click', e => {
+                e.preventDefault()
+                if (e.target.className === 'dropdown-item') {
+                    sel.innerHTML = e.target.innerHTML
+                }
+                if (!active) {
+                    drop.classList.remove('is-active')
+                } else {
+                    drop.classList.add('is-active')
+                }
+                active = !active
+            })
+        }
+    </script>
+</body>
+
+</html>
